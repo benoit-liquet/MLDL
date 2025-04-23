@@ -24,7 +24,7 @@
 - 11.30am to 12.30pm Lunch
 - 12.30pm to 3.00 pm Session 3: Fully Connected Neural Network
 
-## 6 May: [Introduction to Deep Learning: Part-II and III](/DeepLearning)
+## 7 May: [Introduction to Deep Learning: Part-II and III](/DeepLearning)
 
 - 8 am to 10 am Session 1: Convolutional neural Network
 - 10 am to 10.15 am tea Break
