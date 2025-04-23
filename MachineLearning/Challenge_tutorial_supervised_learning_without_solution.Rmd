@@ -1,0 +1,258 @@
+---
+title: "Challenge Tutorial: Supervised learning"
+author: "Benoit"
+date: ""
+output:
+    bookdown::pdf_document2:
+      number_sections: no
+      toc: no
+      tables: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,message = NA,comment = NA,eval=TRUE)
+library(knitr)
+```
+ 
+
+```{r, echo=FALSE,results='hide'}
+# loading libraries
+#library(ggplot2)
+library(MASS)
+#library(kableExtra)
+#library(knitr)
+library(reshape2)
+library(latex2exp)
+library(magrittr)
+```
+
+# MNIST challenge
+
+Consider the MNIST digit classification problem. We have previously learned how to classify the 10 digits using the \textit{one versus all strategy} which consists to build 10 binary classifiers (one for each digit). Here our goal is to create a classifier between even and odd digits. Then, there are two possible classifiers: 
+\begin{itemize}
+\item (I) use the classification of digits ' 0 '-' 9 ' (the one we have done) and then decide if even or odd. 
+\item (II) train on binary classification between evens and odds digits.
+\end{itemize}
+
+
+\begin{enumerate}
+\item Build in R or Python these two classifiers and train it on the training set ($60,000$ images).
+\item Evaluate the performance of the two classifier on the test set ($10,000$ images)  by providing the accuracy. You should provide the confusion matrix.
+\item Which is better? Discuss and comment on the results?
+\end{enumerate}
+
+
+## To get the data 
+
+The first part is to get the data set and to build the classification of digits '0'-'9' 
+
+```{r,tidy=TRUE,cache=TRUE,tidy.opts = list(blank = FALSE, width.cutoff = 60),echo=FALSE}
+file_training_set_image <- "train-images.idx3-ubyte"
+file_training_set_label <- "train-labels.idx1-ubyte"
+file_test_set_image <- "t10k-images.idx3-ubyte"
+file_test_set_label <- "t10k-labels.idx1-ubyte"
+
+extract_images <- function(file, nbimages = NULL) {
+  if (is.null(nbimages)) { # We extract all images
+    nbimages <- as.numeric(paste("0x", paste(readBin(file, "raw", n = 8)[5:8], collapse = ""), sep = ""))
+  }
+ nbrows <- as.numeric(paste("0x", paste(readBin(file, "raw", n = 12)[9:12], collapse = ""), sep = ""))
+ nbcols <- as.numeric(paste("0x", paste(readBin(file, "raw", n = 16)[13:16], collapse = ""), sep = ""))
+ raw <- readBin(file, "raw", n = nbimages * nbrows * nbcols + 16)[-(1:16)]
+return(array(as.numeric(paste("0x", raw, sep="")), dim = c(nbcols, nbrows, nbimages)))
+}
+
+extract_labels <- function(file) {
+ nbitem <- as.numeric(paste("0x", paste(readBin(file, "raw", n = 8)[5:8], collapse = ""), sep = ""))
+ raw <- readBin(file, "raw", n = nbitem + 8)[-(1:8)]
+return(as.numeric(paste("0x", raw, sep="")))
+}
+
+images_training_set <- extract_images(file_training_set_image, 10)
+images_test_set <- extract_images(file_test_set_image, 10)
+labels_training_set <- extract_labels(file_training_set_label)
+labels_test_set <- extract_labels(file_test_set_label)
+
+#labels_training_set[1:10]
+# par(ask = TRUE)
+#par(mfrow=c(2,2))
+#for (i in 1:4) image(as.matrix(rev(as.data.frame(images_training_set[,,i]))), col = gray((255:0)/256))
+```
+
+Read and create the data set
+
+```{r,cache=TRUE}
+dim(images_training_set)
+images_training_set <- extract_images(file_training_set_image, 60000)
+images_test_set <- extract_images(file_test_set_image, 10000)
+labels_training_set <- extract_labels(file_training_set_label)
+labels_test_set <- extract_labels(file_test_set_label)
+length(labels_training_set)
+```
+
+```{r,cache=TRUE}
+vectorized_result <- function(j) {
+  e <- as.matrix(rep(0, 10))
+  e[j + 1] <- 1
+  return(e)
+}
+
+Xtrain <- matrix(0,nrow=60000,ncol=784)
+Ytrain <- matrix(0,nrow=60000,ncol=10)
+for (i in 1:60000) {
+  Xtrain[i,] <- as.vector(images_training_set[,,i]) / 256
+  Ytrain[i,] <- t(vectorized_result(labels_training_set[i]))
+}
+Ytrain[which(Ytrain==0)] <- -1
+
+Xtest <- matrix(0,nrow=10000,ncol=784)
+Ytest <- matrix(0,nrow=10000,ncol=10)
+for (i in 1:10000) {
+  Xtest[i,] <- as.vector(images_test_set[,,i]) / 256
+  Ytest[i,] <- t(vectorized_result(labels_test_set[i]))
+}
+```
+
+We first compute the key element $(X^TX)^{-1}X^T$
+
+As $(X^TX)$ is singular, we use the Moore-Penrose generalized inverse matrix of $X$ through the \texttt{ginv} function from the \texttt{MASS} R package: 
+
+```{r,cache=TRUE}
+library(MASS)
+mat <- ginv(Xtrain)
+```
+
+
+Then, we estimate the 10 linear classifier models 
+
+```{r}
+model <- matrix(0,nrow=784,ncol=10)
+for(i in 1:10){
+model[,i] <- mat%*%matrix(Ytrain[,i],ncol=1)  
+}
+```
+
+
+Now, we can create the prediction function for the linear classifier
+
+```{r}
+pred.model <- function(x,Xtest=Xtest){sum(x*Xtest)}
+
+linear.class <- function(model,Xtest){
+  res <- apply(model,MARGIN=2,FUN=pred.model,Xtest=Xtest)
+  pred <- which.max(res)-1
+  return(pred)
+}
+```
+
+
+## Build classifier to discriminate even and odd digits based on the one versus all classifier 
+
+
+
+Based on the one versus all classifier we can build the classifier to discriminate even and odd digits.
+
+```{r}
+One.versus.all.even.odd <- function(model,Xtest){
+  res <- linear.class(model,Xtest)
+  if(res %in% c(0,2,4,6,8)){pred <- "even"}else{
+    pred <- "odd"
+  } 
+  return(pred)
+}
+```
+
+As an example, we try it on the first image of the test set
+
+```{r}
+i <- 1
+labels_test_set[i]
+Xtest1 <- (as.vector(images_test_set[,,i]) / 256)
+resi <- One.versus.all.even.odd(model,Xtest=Xtest1)
+resi
+```
+
+
+## Build direct binary classifier for even and odd digit. 
+
+We now focus on the direct binary classifier for even and odd digit. 
+Then for each image $i$, we set $y_i = +1$ if the image $i$ is even otherwise we set $y_i = -1$. This labels our data as classifying **_yes even_** vs. **_not even_**.  We then compute,
+$$\hat{\beta}_{even}=(X^TX)^{-1}X^Ty$$ 
+Now for every image $i$, the inner product $\beta_{even}.x_i$ yields an estimate of how likely this image is an even digit. A very high value indicated a high likelihood and a low value is a low likelihood. We then classify an arbitrary image $\tilde{x}$ using the following rule
+
+\begin{eqnarray}
+\hat{y}(\tilde{x}) = +1 \ \ \textrm{if}\ \ \  \beta_{even}.\tilde{x}\leq 0 \ \ \ \textrm{otherwise}\ \ \ \hat{y}(\tilde{x}) = -1
+\end{eqnarray}
+
+```{r,cache=TRUE}
+i <- 1
+y <- rep(1,60000)
+for (i in 1:60000){
+ if(labels_training_set[i] %in% c(1,3,5,7,9)) y[i] <- -1
+}
+```
+
+We now get $\hat{\beta}_{even}$
+
+```{r}
+beta.even <- mat%*%matrix(y,ncol=1)  
+```
+
+Using $\hat{\beta}_{even}$ we define our binary classifier
+
+```{r}
+Binary.even.odd <- function(beta.even,Xtest){
+  res <- sum(beta.even*Xtest)
+  if(res >0){pred <- "even"}else{
+    pred <- "odd"
+  } 
+  return(pred)
+}
+```
+
+## Evaluate both classifier
+
+ We now evaluate both classifier
+
+```{r,cache=TRUE}
+res.one.v.all <- rep("NA",10000)
+res.binary <- rep("NA",10000)
+truelabel <- rep("NA",10000)
+for (i in 1:10000){
+Xtest1 <- (as.vector(images_test_set[,,i]) / 256)
+res.I <- One.versus.all.even.odd(model,Xtest=Xtest1)
+res.II <- Binary.even.odd(beta.even,Xtest=Xtest1)
+if(labels_test_set[i] %in% c(0,2,4,6,8)){truelabel[i] <- "even"}else{ truelabel[i]<- "odd"}
+res.binary[i] <- res.II
+res.one.v.all[i] <- res.I
+}
+accuracy.classifier.I <- mean(truelabel==res.one.v.all)
+accuracy.classifier.I
+accuracy.classifier.II <- mean(truelabel==res.binary)
+accuracy.classifier.II
+```
+
+We present the two confusion matrices and check the accuracy found.
+
+```{r,message=NA,warning=NA}
+library(caret)
+cat("Confusion Matrix Classifier-I")
+sum(diag(table(factor(res.one.v.all),factor(truelabel))))/10000
+caret::confusionMatrix(factor(res.one.v.all),factor(truelabel))$table
+cat("Confusion Matrix Classifier-II")
+sum(diag(table(factor(res.binary),factor(truelabel))))/10000
+caret::confusionMatrix(factor(res.binary),factor(truelabel))$table
+```
+
+## Comparison of the two classifier 
+
+Compared the two classifier:
+
+```{r}
+accuracy <- round(c(accuracy.classifier.I,accuracy.classifier.II),digits = 3)
+names(accuracy) <- c("Classifier-I", "Classifier-II")
+accuracy
+```
+The first classifier outperforms the second classifier (92.3\% versus 89.3\%). We can have expected this result. The binary classifier is trained using images labels from digits 0,2,4,6 and 8  for \textit{even} class and from digits 1,3,5,7 and 9 for \textit{odd} class. Then, the two classes even and odd are composed on different digit representation and so the variability of the features within each class is higher than for the one-versus-all classifier.
+
