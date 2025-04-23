@@ -119,7 +119,9 @@ We use google collab to share code:
 
     - [Convolutional Neural Networks: Practice 1](https://colab.research.google.com/drive/1dtH3UHSfbK5Ss9E9ogtYG5YQzc5fTXNE#scrollTo=klnJ1uktsIVl)
     - [Convolutional Neural Networks: Practice 2](https://colab.research.google.com/drive/1Ru1wRki8yUxx5W2G4Of5-drTRtsZ3_Ym#scrollTo=7z_KGnrn4Dcm)
-    - [Convolutional Neural Networks: Practice 3](https://colab.research.google.com/drive/1Foo-KTWMiJV-sl0mRaZnWHnk05VQLyUB)
+    - [Convolutional Neural Networks: Practice 3 (MNIST)](https://colab.research.google.com/drive/1Foo-KTWMiJV-sl0mRaZnWHnk05VQLyUB)
+    - [Convolutional Neural Networks: Practice 4 (medMNIST)](https://colab.research.google.com/drive/1kmTZ-ypepEpcfNZB_qIB8ILK201KhkEp)
+    - [Convolutional Neural Networks: Practice 5 transfer learning (medMNIST)](https://colab.research.google.com/drive/1EEevV5WUsRwmALZDxTl57Ol5nT89ylbd)
 
 
 - Part 3: Sequence Models
