@@ -18,9 +18,9 @@
 ## Lecture notes
 
 
-- Part 1: [Supervised Learning](Machine_learning_Supervised_vietnam.nb.html.zip)
+- Part 1: [Supervised Learning](Machine_learning_Supervised_2025.nb.html.zip)
 
-- Part 2: [Unsupervised Learning](Machine_learning_unsupervised_vietnam.nb.html.zip)
+- Part 2: [Unsupervised Learning](Machine_learning_unsupervised_2025.nb.html.zip)
 
 
 
