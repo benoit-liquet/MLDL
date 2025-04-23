@@ -46,9 +46,9 @@
 
  ## Lecture notes **DAY 2 and 3**
 
-- Part 1: [Deep Neural network](/DeepLearning/Deep_learning_DNN_Vietnam.nb.html.zip)
-- Part 2: [Convolutional Neural Networks](/DeepLearning/Deep_learning_CNNN_Vietnam.nb.html.zip)
-- Part 3: [Sequence Models](/DeepLearning/Deep_learning_RNNN_Vietnam.nb.html.zip)
+- Part 1: [Deep Neural network](/DeepLearning/Deep_learning_DNN.nb.html.zip)
+- Part 2: [Convolutional Neural Networks](/DeepLearning/Deep_learning_CNN.nb.html.zip)
+- Part 3: [Sequence Models](/DeepLearning/Deep_learning_RNN.nb.html.zip)
 
 
 # R user 
