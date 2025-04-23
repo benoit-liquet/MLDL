@@ -1,28 +1,37 @@
-# MACHINE LEARNING AND DEEP LEARNING
+# Introduction to Machine Learning and Deep Learning
 
 
-- Event organized by [Centre for Data Science at QUT](https://www.qut.edu.au/research/centre-for-data-science)
-- 2-day workshop [course]
+- Event organized by [Faculty of Health and Medical Sciences](https://phdcourses.ku.dk/default.aspx?sitepath=SUND)
+- 3-day workshop [course](https://phdcourses.ku.dk/DetailKursus.aspx?id=112836&sitepath=SUND)
 - Workshop based on Chapt 1,2,3,4,5, 6 and 7 of [Mathematical Engineering of Deep Learning](https://deeplearningmath.org)
 
 ---
 
 
-## 20 February: [A CRASH COURSE ON USING MACHINE LEARNING METHODS EFFECTIVELY IN PRACTICE](/MachineLearning)
+## 5 May: [Introduction to Machine learning](/MachineLearning)
 
-- 10 am to 12pm Session 1: Supevised learning
-- 12pm to 12.30pm:  Lunch
-- 12.30pm to 2.30pm Session 2: Supevised learning
-- 2.30pm to 2.45 pm tea Break
-- 2.45pm  to 4pm Session 3: Unsupevised learning
+- 8 am to 10 am Session 1: Supevised learning
+- 10 am to 10.15 am tea Break
+- 10.15 am to 11.30am: Session 2: Supevised learning
+- 11.30am to 12.30pm Lunch
+- 12.30pm to 3.00 pm Session 3: Unsupevised learning
 
-## 21 February: [MATHEMATICAL ENGINEERING OF DEEP LEARNING - FOUNDATIONS](/DeepLearning)
+## 6 May: [Introduction to Deep Learning: Part-I](/DeepLearning)
 
-- 10 am to 12pm Session 1: Fully Connected Neural Network
-- 12pm to 12.30pm Lunch
-- 12.30pm to 2.30pm Session 2: Convolution Neural Network
-- 2.30pm to 2.45 pm tea Break
-- 2.45pm  to 4pm Session 3: Sequence Model
+- 8 am to 10 am Session 1: Fully Connected Neural Network
+- 10 am to 10.15 am tea Break
+- 10.15 am to 11.30am: Session 2: Fully Connected Neural Network
+- 11.30am to 12.30pm Lunch
+- 12.30pm to 3.00 pm Session 3: Fully Connected Neural Network
+
+## 6 May: [Introduction to Deep Learning: Part-II and III](/DeepLearning)
+
+- 8 am to 10 am Session 1: Convolutional neural Network
+- 10 am to 10.15 am tea Break
+- 10.15 am to 11.30am: Session 2: Convolutional neural Network
+- 11.30am to 12.30pm Lunch
+- 12.30pm to 3.00 pm Session 3: RNN, LSTM and Transformer
+
 
 
 # Material 
@@ -35,7 +44,7 @@
 - Part 2: [Unsupervised Learning](MachineLearning/Machine_learning_unsupervised_vietnam.nb.html.zip)
 
 
- ## Lecture notes **DAY 2**
+ ## Lecture notes **DAY 2 and 3**
 
 - Part 1: [Deep Neural network](/DeepLearning/Deep_learning_DNN_Vietnam.nb.html.zip)
 - Part 2: [Convolutional Neural Networks](/DeepLearning/Deep_learning_CNNN_Vietnam.nb.html.zip)
@@ -92,13 +101,13 @@ install.packages("ggbubr")
 
 We use google collab to share code:
 
-## Note book used during the workshop DAY 1 and 2
+## Note book used during the workshop DAY 1 
 
 -  [Supervised learning Practice](https://colab.research.google.com/drive/1UgQSb3lGnxsTf1WBzH8jxusZs5rema88?usp=sharing)
 -  [Lasso model](https://colab.research.google.com/drive/1QRTvbggQ8DfujIfwnuQNT6Gzd_o7X8jU?usp=sharing)
 -  [Unsupervised learning Practice](https://colab.research.google.com/drive/1AcaLjqUGbXsKuv0L9BlyWr_XZTuVh3Wi?usp=sharing#scrollTo=AxYFCVuEMfJC) (via google collab)
 
-## Note book used during the workshop DAY 3 and 4
+## Note book used during the workshop DAY 2 and 3
 
 - Part 1: Deep Neural network
     - [Deep Neural network: Practice 1](https://colab.research.google.com/drive/1GDdmVTk_Y_SUKvDrVWPf8CKj-M6r0NyG#scrollTo=OLuuc9QrSxFn)
