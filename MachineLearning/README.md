@@ -1,4 +1,4 @@
-# A CRASH COURSE ON USING MACHINE LEARNING METHODS EFFECTIVELY IN PRACTICE
+# Introduction to Machine Learning
 
 ## COURSE OUTLINE   
 -  An overview of the basic problems of machine learning (ML)
