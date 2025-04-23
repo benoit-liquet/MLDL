@@ -1,4 +1,4 @@
-# 24-25 November: MATHEMATICAL ENGINEERING OF DEEP LEARNING - FOUNDATIONS
+# 6-7 May: DEEP LEARNING 
 
 ## COURSE OUTLINE   
 - The General Fully Connected Architecture
