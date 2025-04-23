@@ -38,6 +38,7 @@ Please make sure that you have  recent R and RStudio installed.
 - The R code used for supervised learning is [Rcode_supervised_learning.R](Rcode_supervised_learning.R)
 - The R code used for unsupervised learning is [Rcode_unsupervised_learning.R](Rcode_unsupervised_learning.R)
 - The R code used for the book [Mathematical Engineering of Deep Learning](https://deeplearningmath.org/) is available on [GitHub repo](https://github.com/yoninazarathy/MathematicalEngineeringDeepLearning)
+- Tutorial on Sigmoid model [Practice_supervised_learning_sigmoid_model.pdf](Practice_supervised_learning_sigmoid_model.pdf)
 
 
 
