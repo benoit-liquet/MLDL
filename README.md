@@ -130,5 +130,5 @@ We use google collab to share code:
     - [Sequence Models: Practice 2](https://colab.research.google.com/drive/1MnvITjntB9AmHL2BN_03hGQcDxNVom4B#scrollTo=TvEZtC85n1--)
     - [Sequence Models: Practice 3](https://colab.research.google.com/drive/10HN5da584vuDld6Go9QceNIyGRfrsKCg#)
     - [Sequence Models: Practice 4 ECG Classification](https://colab.research.google.com/drive/10sCO57yzS2env2RHSFH5eO2NwCxv6VL2#scrollTo=VACGs479kCSI)
-
+    - [Sequence Models: Practice 5 Symptoms Classification](https://colab.research.google.com/drive/1agCKQMWCrs85yciGEMWQQTnWEBzF_9IF#scrollTo=IXPSIcSMq_0C)
 
