@@ -2,7 +2,7 @@
 
 
 - Event organized by [Faculty of Health and Medical Sciences](https://phdcourses.ku.dk/default.aspx?sitepath=SUND)
-- 3-day workshop [course](https://phdcourses.ku.dk/DetailKursus.aspx?id=112836&sitepath=SUND)
+- 3-day workshop [course](https://phdcourses.ku.dk/DetailKursus.aspx?id=113830&sitepath=SUND)
 - Workshop based on Chapt 1,2,3,4,5, 6 and 7 of [Mathematical Engineering of Deep Learning](https://deeplearningmath.org)
 
 ---
