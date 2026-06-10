@@ -8,7 +8,7 @@
 ---
 
 
-## 5 May: [Introduction to Machine learning](/MachineLearning)
+## 22 June: [Introduction to Machine learning](/MachineLearning)
 
 - 8 am to 10 am Session 1: Supevised learning
 - 10 am to 10.15 am tea Break
@@ -16,7 +16,7 @@
 - 11.30am to 12.30pm Lunch
 - 12.30pm to 3.00 pm Session 3: Unsupevised learning
 
-## 6 May: [Introduction to Deep Learning: Part-I](/DeepLearning)
+## 23 June: [Introduction to Deep Learning: Part-I](/DeepLearning)
 
 - 8 am to 10 am Session 1: Fully Connected Neural Network
 - 10 am to 10.15 am tea Break
@@ -24,7 +24,7 @@
 - 11.30am to 12.30pm Lunch
 - 12.30pm to 3.00 pm Session 3: Fully Connected Neural Network
 
-## 7 May: [Introduction to Deep Learning: Part-II and III](/DeepLearning)
+## 24 June: [Introduction to Deep Learning: Part-II and III](/DeepLearning)
 
 - 8 am to 10 am Session 1: Convolutional neural Network
 - 10 am to 10.15 am tea Break
