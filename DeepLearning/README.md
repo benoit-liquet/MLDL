@@ -1,4 +1,4 @@
-# 6-7 May: DEEP LEARNING 
+# 23-24 June: DEEP LEARNING 
 
 ## COURSE OUTLINE   
 - The General Fully Connected Architecture
