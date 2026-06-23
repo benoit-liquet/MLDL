@@ -44,7 +44,7 @@ install.packages("tensorflow")
     - [Deep Neural network: Practice 2](https://colab.research.google.com/drive/1gpr8Xl5Y51-dYDQ1BA6lNcJ8yZq3GPvr)
     - [Deep Neural network: Practice 3](https://colab.research.google.com/drive/12PETdpB2B0Y2mTGzYUQ8X6M0GxRo4cQN#scrollTo=kNmB-JWBaX59)
     - [Deep Neural network: Practice 4](https://colab.research.google.com/drive/1Msg2GDt5P0kB0MVPSPUcGZGIxDjOgoDb?usp=sharing)
-    - [Deep Neural network: Practice 4 with TORCH](https://colab.research.google.com/drive/1Msg2GDt5P0kB0MVPSPUcGZGIxDjOgoDb?usp=sharing#scrollTo=ql3OLiP0laqo)
+    - [Deep Neural network: Practice 4 with TORCH](https://colab.research.google.com/drive/19_I63sCyOQMROIM9bLY8qbXT4rmr3oaG#scrollTo=kkWRp1LdPkfv)
 
 - Part 2: Convolutional Neural Networks
 
