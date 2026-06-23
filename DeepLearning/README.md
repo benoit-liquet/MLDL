@@ -52,8 +52,8 @@ install.packages("tensorflow")
     - [Convolutional Neural Networks: Practice 2](https://colab.research.google.com/drive/1Ru1wRki8yUxx5W2G4Of5-drTRtsZ3_Ym#scrollTo=7z_KGnrn4Dcm)
     - [Convolutional Neural Networks: Practice 3 (MNIST)](https://colab.research.google.com/drive/1Foo-KTWMiJV-sl0mRaZnWHnk05VQLyUB)
     - [Convolutional Neural Networks: Practice 4 (medMNIST)](https://colab.research.google.com/drive/1kmTZ-ypepEpcfNZB_qIB8ILK201KhkEp)
-    - [Convolutional Neural Networks: Practice 5 transfer learning (medMNIST)](https://colab.research.google.com/drive/1EEevV5WUsRwmALZDxTl57Ol5nT89ylbd)
-   
+    - [Convolutional Neural Networks: Practice 5 transfer learning (medMNIST)]
+ (https://colab.research.google.com/drive/1EnJQCGgETQZcV7-FPwBT5dfR86YQEMSM)  
 - Part 3: Sequence Models
     
     - [Sequence Models: Practice 1](https://colab.research.google.com/drive/1VMNmL1YKZHZBJip8f5tcEMxj5VlCIfbM#scrollTo=sB1y93Nmik5T)
